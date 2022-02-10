@@ -1,0 +1,80 @@
+<div id="app">
+<nav id="navbar">
+  <header><h1>React Hook Doc</h1></header>
+  <div id="nav-links">
+  <a class="nav-link" href="#Hooks_at_a_Glance">Hooks at a Glance</a>
+  <a class="nav-link" href="#State_Hook">State Hook</a>
+  <a class="nav-link" href="#Effect_Hook">Effect Hook</a>
+  <a class="nav-link" href="#Rules_of_Hooks">Rules of Hooks</a>
+  <a class="nav-link" href="#Building_Your_Own_Hooks">Building Your Own Hooks</a>
+  <a class="nav-link" href="#Other_Hooks">Other Hooks</a>
+  <a class="nav-link" href="#Reference">Reference</a>
+  </div>
+  </nav>
+<main id="main-doc">
+  <section class="main-section" id="Hooks_at_a_Glance">
+    <header><h2>Hooks at a Glance</h2></header>
+    <p>Hooks are functions that let you use React state, lifecycle functions, or other React features from function components.</p>
+    <p>React provides a few built-in Hooks, but you can also create your own hooks to reuse stateful behavior between different components.</p> 
+ <p><b>We will explore both built-in and custom Hooks below!</b></p>
+  </section>
+  <section class="main-section" id="State_Hook">
+    <header><h2>State Hook</h2></header>
+    <p>The first built-in Hook we will look at is the State Hook, useState, which lets you use React state in a functional component. React will preserve this state between re-renders.</p>
+    <code>const [counter, setCounter] = useState(0);</code>
+    <p>useState returns a pair so it is advised to use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#array_destructuring">array destructing</a> to easily declare new state.</p>
+    <p>The pair returned is the current state value and a function that lets you update it which is similar to this.setState, but not identical.</p>
+    <p>useState takes only one argument, inital state, which is only used during the first render.</p>
+    <p>You can use the State Hook more than once in a single component.</p>
+  </section>
+  <section class="main-section" id="Effect_Hook">
+    <header><h2>Effect Hook</h2></header>
+    <p>The Effect Hook, useEffect, adds the ability to perform side effects from a function component.</p>
+    <p>Side effects are operations that can affect other components and cannot be done during rendering like data fetching.</p>
+    <p>The most basic way of using the Effect Hook is to only pass it a function that contains imperative, possibly effectful code. This will run after every render including the first.</p>
+      <code>  useEffect(() => {
+          //your effect code 
+        });</code>
+    <p>Argueably the next easiest way to use the Effect Hook is to only have it run your effect after the first render. You achieve this by providing useEffect its second argument, a dependency array, with an empty array.</p>
+          <code>  useEffect(() => {
+          //your effect code that will run only once now
+        },[]);</code>
+    <p>The Effect Hook is much more complex than the State Hook, so for more information on its usage and arguments read <a href="https://reactjs.org/docs/hooks-effect.html">using the Effect Hook</a>.</p>
+  </section>
+  <section class="main-section" id="Rules_of_Hooks">
+    <header><h2>Rules of Hooks</h2></header>
+    <p>Hooks are JavaScript functions, but they impose two additional rules:</p>
+    <ul>
+      <li>Only call Hooks <b>at the top level</b>. Do not call Hooks inside loops, conditions, or nested functions.</li>
+      <li>Only call Hooks <b>from React function components and custom Hooks</b>.</li>
+    </ul>
+  </section>
+  <section class="main-section" id="Building_Your_Own_Hooks">
+    <header><h2>Building Your Own Hooks</h2></header>
+    <p>Building your own Hooks lets you reuse some stateful logic between components and removes the need to use <a href="https://reactjs.org/docs/higher-order-components.html">higher-order components</a> and <a href="https://reactjs.org/docs/render-props.html">render props</a>.</p>
+    <p>Custom Hooks are more of a convention than a feature. If a function’s name starts with ”use” and it calls other Hooks, we say it is a custom Hook.</p>
+  </section>
+  <section class="main-section" id="Other_Hooks">
+    <header><h2>Other Hooks</h2></header>
+    <ul>
+      <li>useContext: <code>const value = useContext(MyContext)</code></li>
+      <li>useReducer: <code>const [state, dispatch] = useReducer(reducer, initialArg, init);</code></li>
+      <li>useCallback</li>
+      <li>useMemo: <code>const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);</code></li>
+      <li>useRef: <code>const refContainer = useRef(initialValue);</code></li>
+      <li>useImperativeHandle: <code>useImperativeHandle(ref, createHandle, [deps])</code></li>
+      <li>useLayoutEffect</li>
+      <li>useDebugValue: <code>useDebugValue(value)</code></li>
+    </ul>
+    <p>See what each additional hook does at React's <a href="https://reactjs.org/docs/hooks-reference.html">Hook API reference</a>
+  </section>
+  <section class="main-section" id="Reference">
+    <header>
+      <h2>Reference</h2>
+          </header>
+      <ul>
+        <li>Documentation from this page is taken from React's <a href="https://reactjs.org/docs/hooks-intro.html">Hooks documentation</a></li>
+      </ul>
+  </section>
+</main>
+</div>
